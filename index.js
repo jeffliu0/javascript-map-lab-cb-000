@@ -22,13 +22,15 @@ const zebraStripes = [
   { width: 7.31, color: null }
 ];
 
-var sortedRobots = map(robots, (element, i, robots) => {
-  for(each in robots){
-    if(Decepticons.includes(each.name)){
-      robots.alliance = 'decepticon'
-    }
-    else{
-      robots.alliance = 'autobot'
-    }
+var sortedRobots = robots.map( (element, i, robot) => {
+  if(Decepticons.includes(robots.name)){
+    return Object.assign( {}, element, {
+      alliance: 'decepticon'
+    })
+  }
+  else{
+    return Object.assign({}, element, {
+      alliance: 'autobot'
+    })
   }
 })
